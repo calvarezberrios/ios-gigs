@@ -13,6 +13,7 @@
 		3991F8432BCD9FC10057CE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3991F8422BCD9FC10057CE34 /* Assets.xcassets */; };
 		3991F8462BCD9FC10057CE34 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3991F8452BCD9FC10057CE34 /* Base */; };
 		3991F8552BCDCD670057CE34 /* GigsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3991F8542BCDCD670057CE34 /* GigsTableViewController.swift */; };
+		3991F8572BCDD3D50057CE34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3991F8562BCDD3D50057CE34 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3991F8452BCD9FC10057CE34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3991F8472BCD9FC10057CE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3991F8542BCDCD670057CE34 /* GigsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigsTableViewController.swift; sourceTree = "<group>"; };
+		3991F8562BCDD3D50057CE34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				3991F8542BCDCD670057CE34 /* GigsTableViewController.swift */,
+				3991F8562BCDD3D50057CE34 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3991F8572BCDD3D50057CE34 /* LoginViewController.swift in Sources */,
 				3991F83A2BCD9FBE0057CE34 /* AppDelegate.swift in Sources */,
 				3991F83C2BCD9FBE0057CE34 /* SceneDelegate.swift in Sources */,
 				3991F8552BCDCD670057CE34 /* GigsTableViewController.swift in Sources */,

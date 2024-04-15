@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="-218.84057971014494" y="214.95535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="qHM-Z8-ktz">
             <objects>
-                <viewController id="hs0-gY-ag5" sceneMemberID="viewController">
+                <viewController id="hs0-gY-ag5" customClass="LoginViewController" customModule="Gigs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5kQ-hb-0tX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,9 @@
                                     <segment title="Sign In"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="setLoginType:" destination="hs0-gY-ag5" eventType="valueChanged" id="f02-g9-hoC"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-30-pBj">
                                 <rect key="frame" x="50" y="437.33333333333331" width="314" height="58.666666666666686"/>
@@ -94,6 +97,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="hs0-gY-ag5" eventType="touchUpInside" id="fTH-UF-dXd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lqJ-0E-jxb"/>
@@ -111,6 +117,12 @@
                             <constraint firstItem="VKn-UR-ImI" firstAttribute="top" relation="lessThanOrEqual" secondItem="lqJ-0E-jxb" secondAttribute="top" constant="245" id="hiL-0V-AkM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="VKn-UR-ImI" id="rZA-4v-LIH"/>
+                        <outlet property="passwordTextField" destination="oB5-YO-F4G" id="jFD-It-AgK"/>
+                        <outlet property="signinButton" destination="bkf-30-pBj" id="5pa-mL-tP2"/>
+                        <outlet property="usernameTextField" destination="h4S-nb-UKB" id="1PO-VC-hCp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnG-S6-con" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
