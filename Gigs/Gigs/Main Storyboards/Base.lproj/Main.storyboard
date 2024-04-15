@@ -49,7 +49,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Gigs" id="BNS-vv-Kqv"/>
                     <connections>
-                        <segue destination="hs0-gY-ag5" kind="presentation" modalPresentationStyle="fullScreen" id="XPD-LG-nlB"/>
+                        <segue destination="hs0-gY-ag5" kind="presentation" identifier="LoginViewModalSegue" modalPresentationStyle="fullScreen" id="XPD-LG-nlB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZ7-kD-1C4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
