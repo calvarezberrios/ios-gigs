@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		398C0EAD2BCFFB2000CCE781 /* GigDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398C0EAC2BCFFB2000CCE781 /* GigDetailViewController.swift */; };
 		3991F83A2BCD9FBE0057CE34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3991F8392BCD9FBE0057CE34 /* AppDelegate.swift */; };
 		3991F83C2BCD9FBE0057CE34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3991F83B2BCD9FBE0057CE34 /* SceneDelegate.swift */; };
 		3991F8412BCD9FBE0057CE34 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3991F8402BCD9FBE0057CE34 /* Base */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		398C0EAC2BCFFB2000CCE781 /* GigDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigDetailViewController.swift; sourceTree = "<group>"; };
 		3991F8362BCD9FBE0057CE34 /* Gigs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3991F8392BCD9FBE0057CE34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3991F83B2BCD9FBE0057CE34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				3991F8542BCDCD670057CE34 /* GigsTableViewController.swift */,
 				3991F8562BCDD3D50057CE34 /* LoginViewController.swift */,
+				398C0EAC2BCFFB2000CCE781 /* GigDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				3991F83C2BCD9FBE0057CE34 /* SceneDelegate.swift in Sources */,
 				3991F85F2BCDDAB10057CE34 /* HTTPMethod.swift in Sources */,
 				3991F8592BCDD5500057CE34 /* Bearer.swift in Sources */,
+				398C0EAD2BCFFB2000CCE781 /* GigDetailViewController.swift in Sources */,
 				3991F85D2BCDD7160057CE34 /* AuthController.swift in Sources */,
 				3991F8552BCDCD670057CE34 /* GigsTableViewController.swift in Sources */,
 			);
