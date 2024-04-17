@@ -82,6 +82,23 @@ class GigsTableViewController: UITableViewController {
             if let loginVC = segue.destination as? LoginViewController {
                 loginVC.authController = authController
             }
+        } else if segue.identifier == "AddGigSegue" {
+            if let addGigVC = segue.destination as? GigDetailViewController {
+                addGigVC.bearer = authController.bearer
+                addGigVC.gigController = gigController
+            }
+        } else if segue.identifier == "ShowGigSegue" {
+            if let showGigVC = segue.destination as? GigDetailViewController {
+                guard let indexPath = tableView.indexPathForSelectedRow else {
+                    NSLog("Unable to get indexPath for selected cell")
+                    return
+                }
+                showGigVC.bearer = authController.bearer
+                showGigVC.gigController = gigController
+                let gig = gigController.gigs[indexPath.row]
+                print(gig)
+                showGigVC.gig = gig
+            }
         }
     }
     
