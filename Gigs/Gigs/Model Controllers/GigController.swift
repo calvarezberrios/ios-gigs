@@ -26,7 +26,7 @@ class GigController {
     
     private var task: URLSessionTask?
     
-    func getAllGigs(with auth: Bearer, completion: @escaping (Result<[Gig], NetworkError>)-> Void) {
+    func getAllGigs(with auth: Bearer, completion: @escaping (NetworkError?)-> Void) {
         task?.cancel()
         
         let requestURL = gigsURL
@@ -39,17 +39,17 @@ class GigController {
         task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 NSLog("Error getting gigs: \(error)")
-                completion(.failure(.serverError(error)))
+                completion(.serverError(error))
                 return
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
-                completion(.failure(.unexpectedStatusCode))
+                completion(.unexpectedStatusCode)
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.noData))
+                completion(.noData)
                 return
             }
             
@@ -57,11 +57,16 @@ class GigController {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let gigs = try decoder.decode([Gig].self, from: data)
-                self.gigs  = gigs
-                completion(.success(gigs))
+                
+                if self.gigs.count == 0 {
+                    // this if block is only for testing purposes due to using a mock api that does not hold the actual data
+                    self.gigs = gigs
+                }
+                
+                completion(nil)
             } catch {
                 NSLog("Error decoding gigs data: \(error)")
-                completion(.failure(.badDecode))
+                completion(.badDecode)
             }
         }
         
@@ -69,7 +74,7 @@ class GigController {
         
     }
     
-    func createGig(with auth: Bearer, newGig: Gig, completion: @escaping (Result<Gig, NetworkError>) -> Void) {
+    func createGig(with auth: Bearer, newGig: Gig, completion: @escaping (NetworkError?) -> Void) {
         task?.cancel()
         
         let requestURL = gigsURL
@@ -86,24 +91,24 @@ class GigController {
             request.httpBody = newGigData
         } catch {
             NSLog("Error encoding gig data: \(error)")
-            completion(.failure(.badEncode))
+            completion(.badEncode)
         }
         
         task = URLSession.shared.dataTask(with: request) { data, response, error in
         
             if let error = error {
                 NSLog("Error creating gig: \(error)")
-                completion(.failure(.serverError(error)))
+                completion(.serverError(error))
                 return
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
-                completion(.failure(.unexpectedStatusCode))
+                completion(.unexpectedStatusCode)
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.noData))
+                completion(.noData)
                 return
             }
             
@@ -111,12 +116,13 @@ class GigController {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy  = .iso8601
                 
-                let gig = try decoder.decode(Gig.self, from: data)
-                self.gigs.append(newGig)
-                completion(.success(newGig))
+                var gig = try decoder.decode(Gig.self, from: data)
+                gig = newGig // this is just due to mock api
+                self.gigs.append(gig)
+                completion(nil)
             } catch {
                 NSLog("Error decoding new gig data: \(error)")
-                completion(.failure(.badDecode))
+                completion(.badDecode)
             }
             
         }

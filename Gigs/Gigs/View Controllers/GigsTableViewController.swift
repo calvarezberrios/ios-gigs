@@ -13,6 +13,14 @@ class GigsTableViewController: UITableViewController {
     let reuseidentifier = "GigCell"
     
     let authController = AuthController()
+    let gigController = GigController()
+    
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,6 +30,18 @@ class GigsTableViewController: UITableViewController {
         }
         
         //  TODO: fetch gigs here
+        if let bearer = authController.bearer {
+            gigController.getAllGigs(with: bearer) { error in
+                if let error = error {
+                    NSLog("Error getting gigs: \(error)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -33,15 +53,22 @@ class GigsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return gigController.gigs.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseidentifier, for: indexPath)
 
-        // Configure the cell...
-
+        var content = cell.defaultContentConfiguration()
+        
+        let gig = gigController.gigs[indexPath.row]
+        
+        content.text = gig.title
+        content.secondaryText = dateFormatter.string(from: gig.dueDate)
+        
+        cell.contentConfiguration = content
+        
         return cell
     }
     
