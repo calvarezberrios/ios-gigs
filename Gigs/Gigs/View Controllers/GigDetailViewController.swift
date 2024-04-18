@@ -23,7 +23,7 @@ class GigDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let gig = gig {
+        if gig != nil {
             updateViews()
         }
     }

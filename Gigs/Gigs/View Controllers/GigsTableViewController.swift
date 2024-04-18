@@ -96,7 +96,6 @@ class GigsTableViewController: UITableViewController {
                 showGigVC.bearer = authController.bearer
                 showGigVC.gigController = gigController
                 let gig = gigController.gigs[indexPath.row]
-                print(gig)
                 showGigVC.gig = gig
             }
         }
